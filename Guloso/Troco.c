@@ -17,52 +17,50 @@ soma total resulta no valor de determinado troco.
 */
 #include <stdio.h>
 
+/* Versão recursiva: moedas em ordem crescente, t = índice da maior */
 int qntdMoedas(int n, int m[], int t) {
-    // considerando que mochila esteja ordenado
-    if(n == 0) return 0;
-    if(m[t] < n) return 1 + qntdMoedas(n - m[t], m, t);
-    return qntdMoedas(n, m, t-1);
+    if (n == 0) return 0;
+    if (t < 0)  return -1;                 // sem solução
+    if (m[t] <= n) {
+        int r = qntdMoedas(n - m[t], m, t);
+        return r < 0 ? -1 : 1 + r;
+    }
+    return qntdMoedas(n, m, t - 1);
 }
 
-int troco(int C[], int n, int t) {
-    int soma = 0;
-    int qntd = 1;
-    int troco[100];
-    while(C != 0 && soma < valor) {
-        int m = C[0]; // moeda de maior valor
-        for(int i = 0; i < t; i++) {
-            if(m < C[i]) m = C[i];
+/* Versão iterativa: preenche res[] com as moedas e retorna a quantidade
+   (ou -1 se não houver solução) */
+int troco(int C[], int t, int valor, int res[]) {
+    int qntd = 0;
+    for (int i = t - 1; i >= 0 && valor > 0; i--) {   // C ordenado crescente
+        while (C[i] <= valor) {
+            valor -= C[i];
+            res[qntd++] = C[i];
         }
-        if(soma + m <= valor) {
-            soma = soma + m;
-            troco[qntd] = m;
-            qntd++;
-        } 
-    } 
-    if (soma == valor) {
-        troco[0] = qntd;
-        return troco;
     }
-    else {
-        printf("Não encontrei a solução\n");
-        return 0;
-    }
+    return valor == 0 ? qntd : -1;
 }
 
 int main() {
-    int total = 3;
+    int moedas[] = {1, 2, 5};
+    int total = sizeof(moedas) / sizeof(moedas[0]);
     int valor = 12;
-    int moedas[total] = {1, 2, 5};
+    int res[100];
+
     int quantidade = qntdMoedas(valor, moedas, total - 1);
-    int troco[100] = troco(moedas, valor, total);
-    printf("Moedas: ");
-    for(int i = 1; i < troco[0]; i++) {
-        printf("%d, ", troco[i]);
+    int q = troco(moedas, total, valor, res);
+
+    if (q < 0) {
+        printf("Não encontrei a solução\n");
+        return 1;
     }
-    if(quantidade == troco[0]) printf("Quantidade: %d", quantidade);
+
+    printf("Moedas: ");
+    for (int i = 0; i < q; i++)
+        printf("%d%s", res[i], i < q - 1 ? ", " : "\n");
+    printf("Quantidade: %d (recursiva: %d)\n", q, quantidade);
     return 0;
 }
-
 /* 
 ===================================================================
 Esta estratégia nem sempre é a melhor, exemplo: 
