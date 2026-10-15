@@ -45,20 +45,20 @@ graph TD
 ### Cálculo de Bits:
 
 a = 45 · 1 = 45
----
-b = 13 · 3 = 39
----
-c = 12 · 3 = 36
----
-d = 16 · 3 = 48
----
-e = 9 · 4 = 36
----
-f = 5 · 4 = 20
----
 
-Custo total: B(T) = 254 bits
----
+b = 13 · 3 = 39
+
+c = 12 · 3 = 36
+
+d = 16 · 3 = 48
+
+e = 9 · 4 = 36
+
+f = 5 · 4 = 20
+
+
+Custo total: B(T) = *254* bits
+
 
 ## Construindo o código de Huffman:
 > Entrada: Conjunto de caracteres 'C' com as frequências 'f' dos caracteres em 'C'.
