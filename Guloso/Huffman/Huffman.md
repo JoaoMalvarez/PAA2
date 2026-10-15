@@ -5,41 +5,46 @@ dependendo do arquivo a ser comprimido).
 > O algoritmo guloso de Huffman usa uma tabela de frequência de 
 caracteres para obter um código binário único (códigoprefixo) de 
 cada caracter encontrado no arquivo de entrada.
-===================================================================
+
 ## Problema da codificação: 
     > Dadas as frequências de ocorrências
     dos caracteres de um arquivo, encontrar a sequência de bits
     (códigos) para representá-los de modo que o arquivo comprimido
     tenha tamanho mínimo.
-===================================================================
+
 ## Códigos livres de prefixos: 
     > O código de um símbolo não é
     prefixo do código de nenhum outro símbolo.
     > Códigos livres de prefixos são fáceis de decodificar.
-===================================================================
+
 ## Exemplo:
 ### Tabela:
-                           |   a   |   b   |   c   |   d   |   e   |   f   |
-Frequência                 |  45   |  13   |  12   |  16   |   9   |   5   |
-Código de tamanho fixo     |  000  |  001  |  010  |  011  |  100  |  101  |
-Código de tamanho variável |   0   |  101  |  100  |  111  |  1101 |  1101 |
+Parâmetros|a|b|c|d|e|f|
+Frequência|45|13|12|16|9|5|
+Código de tamanho fixo|000|001|010|011|100|101|
+Código de tamanho variável|0|101|100|111|1101|1101|
 (Substitui no texto a letra pelo codigo de tamanho variável)
 
 ------
 ### Árvore de Huffman:
+```mermaid
+graph TD
+    N100[100] -- "0" --> Na(a:45)
+    N100 -- "1" --> N55[55]
+    
+    N55 -- "0" --> N25[25]
+    N55 -- "1" --> N30[30]
+    
+    N25 -- "0" --> Nc(c:12)
+    N25 -- "1" --> Nb(b:13)
+    
+    N30 -- "0" --> N14[14]
+    N30 -- "1" --> Nd(d:16)
+    
+    N14 -- "0" --> Nf[f:5]
+    N14 -- "1" --> Ne[e:9]
 ```
-                              |100|
-                          '0'/     \'1'
-                        (a:45)      |55|
-                                '0'/    \'1'
-                                  /      L__________
-                                 /                  \
-                                |25|                |30|
-                            '0'/    \'1'        '0'/    \'1'
-                          (c:12)    (b:13)      |14|     (d:16)
-                                            '0'/    \'1'
-                                           |f:5|    |e:9|
-```
+
 ------
 ### Cálculo de Bits:
 
