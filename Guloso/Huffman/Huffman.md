@@ -58,6 +58,7 @@ f = 5 · 4 = 20
 ---
 
 Custo total: B(T) = 254 bits
+---
 
 ## Construindo o código de Huffman:
 > Entrada: Conjunto de caracteres 'C' com as frequências 'f' dos caracteres em 'C'.
