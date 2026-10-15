@@ -19,10 +19,10 @@ cada caracter encontrado no arquivo de entrada.
 
 ## Exemplo:
 ### Tabela:
-Parâmetros|a|b|c|d|e|f|
-Frequência|45|13|12|16|9|5|
-Código de tamanho fixo|000|001|010|011|100|101|
-Código de tamanho variável|0|101|100|111|1101|1101|
+Parâmetros | a | b | c | d | e | f |
+Frequência | 45 | 13 | 12 | 16 | 9 | 5 |
+Código de tamanho fixo | 000 | 001 | 010 | 011 | 100 | 101 |
+Código de tamanho variável | 0 | 101 | 100 | 111 | 1101 | 1101 |
 (Substitui no texto a letra pelo codigo de tamanho variável)
 
 ------
