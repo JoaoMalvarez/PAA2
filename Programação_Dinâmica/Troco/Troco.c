@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define INF 1000000
+#define INF 1000000 // infinito
 
 // Função auxiliar para achar o menor entre dois números
 int min(int a, int b) {
