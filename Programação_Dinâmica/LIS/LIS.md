@@ -14,11 +14,13 @@
 - seja LIS(i) o tamanho da subsequência crescente mais longa
 de tamanho i.
 
+```
 LIS(i) = 
 \begin{cases} 
 1, & \text{se } i = 0 \\ 
 max{LIS(j) + 1}, & \text{onde } num[j] < num[i], para 0 <= j < i 
 \end{cases}
+```
 
 ---
 
