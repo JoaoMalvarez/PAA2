@@ -13,14 +13,14 @@ Dado um valor para o troco 'T', e um conjunto 'M' de 'n' moedas, cada um com um 
 ---
 
 ## Recorrência:
-```
+$$
 conta_moedas(T) = 
 \begin{cases} 
 0, & \text{se } T = 0 \\ 
 ∞, & \text{se } T < 0 \\ 
 min{conta_moedas(T - mi) + 1}, & \text{se } T > 0 
 \end{cases}
-```
+$$
 
 ---
 

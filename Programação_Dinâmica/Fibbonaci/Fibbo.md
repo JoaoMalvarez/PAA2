@@ -1,12 +1,12 @@
 # Números de Fibonacci
-```
+$$
 fib(n) = 
 \begin{cases} 
 0, & \text{se } n = 0 \\ 
 1, & \text{se } n = 1 \\ 
 fib(n - 1) + fib(n - 2), & \text{se } n > 1 
 \end{cases}
-```
+$$
 
 ---
 
