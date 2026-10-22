@@ -64,4 +64,28 @@ Custo total: B(T) = *254* bits
 > Entrada: Conjunto de caracteres 'C' com as frequências 'f' dos caracteres em 'C'.
 > Saída: raíz da árvore binária representando uma codificação ótima livre de prefixos.
 
+## Para rodar:
 
+### Linux:
+```
+make run
+```
+> Para compilar e rodar tudo de uma vez
+
+```
+make
+```
+> Para somente compilar
+
+```
+make clean
+```
+> Para limpar os arquivos gerados
+
+### Windows:
+```
+gcc -Wall -Wextra -g -o huffman Codigo.c
+>> .\huffman.exe texto.txt
+.\huffman.exe -c texto.txt texto.huff
+.\huffman.exe -d texto.huff texto_recuperado.txt
+```

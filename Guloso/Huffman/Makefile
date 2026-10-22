@@ -1,22 +1,20 @@
-# Makefile do compactador Huffman
-
-CC     = gcc
+CC = gcc
 CFLAGS = -Wall -Wextra -g
 TARGET = huffman
-SRC    = Codigo.c
-ARQ   ?= texto.txt
+SRC = Codigo.c
 
+# Alvo padrão: apenas compila o programa
 all: $(TARGET)
 
 $(TARGET): $(SRC)
-	$(CC) $(CFLAGS) -o $@ $<
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
 
-# make run              -> roda com texto.txt
-# make run ARQ=outro.txt -> roda com outro arquivo
+# Alvo para rodar todo o fluxo de uma vez (compila, compacta e descompacta)
 run: $(TARGET)
-	./$(TARGET) $(ARQ)
+	./$(TARGET) -c texto.txt texto.huff
+	./$(TARGET) -d texto.huff texto_recuperado.txt
+	@echo "Fluxo completo executado com sucesso!"
 
+# Alvo para limpar os arquivos gerados (binário e arquivos de teste)
 clean:
-	rm -f $(TARGET)
-
-.PHONY: all run clean
+	rm -f huffman huffman.exe texto.huff texto_recuperado.txt
