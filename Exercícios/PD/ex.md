@@ -59,9 +59,11 @@ Explicação: Você começará no índice 0.
 
 ## 3. (JOGO DO DIVISOR) 
 Alice e Bob jogam em turnos um jogo, com Alice começando primeiro. Inicialmente, há um número n no quadro-negro. Em cada turno do jogador, esse jogador faz uma jogada consistindo em:
+
     - Escolher qualquer x com 0 < x < n e n % x == 0.
     - Substituir o número n no quadro-negro por n − x.
     - Além disso, se um jogador não puder fazer uma jogada, ele perde o jogo.
+    
 Retorne verdadeiro somente se Alice vencer o jogo, assumindo que ambos os jogadores jogam de forma otimizada.
 
 > Exemplo 1:
