@@ -80,7 +80,8 @@ Explicação: Alice escolhe 1, Bob escolhe 1 e Alice não tem mais jogadas dispo
 
 ---
 
-## 4. (LADRÃO DE CASAS) Você é um ladrão profissional planejando roubar casas ao longo de uma rua. Cada casa tem uma certa quantia de dinheiro guardada, e a única restrição que impede você de roubar todas elas é que casas adjacentes possuem sistemas de segurança conectados, que automaticamente acionam a polícia se duas casas adjacentes forem roubadas na mesma noite. Dado um vetor de inteiros chamado nums, que representa a quantia de dinheiro em cada casa, retorne o valor máximo que você pode roubar esta noite sem alertar a polícia.
+## 4. (LADRÃO DE CASAS) 
+Você é um ladrão profissional planejando roubar casas ao longo de uma rua. Cada casa tem uma certa quantia de dinheiro guardada, e a única restrição que impede você de roubar todas elas é que casas adjacentes possuem sistemas de segurança conectados, que automaticamente acionam a polícia se duas casas adjacentes forem roubadas na mesma noite. Dado um vetor de inteiros chamado nums, que representa a quantia de dinheiro em cada casa, retorne o valor máximo que você pode roubar esta noite sem alertar a polícia.
 
 > Exemplo 1:
 ```
