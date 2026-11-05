@@ -1,5 +1,7 @@
 # Exercícios
-## 1. (MELHOR MOMENTO PARA COMPRA E VENDER AÇÕES) Você recebe um vetor precos, onde precos[i] é o preço de uma determinada ação no i-ésimo dia. Você deseja maximizar seu lucro escolhendo um único dia para comprar uma ação e escolhendo um dia diferente no futuro para vender essa ação. Retorne o lucro máximo que você pode obter com essa transação. Se você não puder obter nenhum lucro, retorne 0.
+## 1. (MELHOR MOMENTO PARA COMPRA E VENDER AÇÕES) 
+
+Você recebe um vetor precos, onde precos[i] é o preço de uma determinada ação no i-ésimo dia. Você deseja maximizar seu lucro escolhendo um único dia para comprar uma ação e escolhendo um dia diferente no futuro para vender essa ação. Retorne o lucro máximo que você pode obter com essa transação. Se você não puder obter nenhum lucro, retorne 0.
 
 > Exemplo 1:
 ```
@@ -22,7 +24,9 @@ Saída: 5
 
 ---
 
-## 2. (CUSTO MÍNIMO PARA SUBIR ESCADAS) Você recebe um vetor de inteiros chamado "custo", onde custo[i] representa o custo do i-ésimo degrau em uma escada. Após pagar o custo, você pode subir um ou dois degraus. Você pode começar tanto no degrau de índice 0 quanto no degrau de índice 1. Retorne o custo mínimo para chegar ao topo do piso.
+## 2. (CUSTO MÍNIMO PARA SUBIR ESCADAS) 
+
+Você recebe um vetor de inteiros chamado "custo", onde custo[i] representa o custo do i-ésimo degrau em uma escada. Após pagar o custo, você pode subir um ou dois degraus. Você pode começar tanto no degrau de índice 0 quanto no degrau de índice 1. Retorne o custo mínimo para chegar ao topo do piso.
 
 > Exemplo 1:
 ```
@@ -53,11 +57,12 @@ Explicação: Você começará no índice 0.
 
 ---
 
-## 3. (JOGO DO DIVISOR) Alice e Bob jogam em turnos um jogo, com Alice começando primeiro. Inicialmente, há um número n no quadro-negro. Em cada turno do jogador, esse jogador faz uma jogada consistindo em:
-**- Escolher qualquer x com 0 < x < n e n % x == 0.**
-**- Substituir o número n no quadro-negro por n − x.**
-**- Além disso, se um jogador não puder fazer uma jogada, ele perde o jogo.**
-## Retorne verdadeiro somente se Alice vencer o jogo, assumindo que ambos os jogadores jogam de forma otimizada.
+## 3. (JOGO DO DIVISOR) 
+Alice e Bob jogam em turnos um jogo, com Alice começando primeiro. Inicialmente, há um número n no quadro-negro. Em cada turno do jogador, esse jogador faz uma jogada consistindo em:
+    - Escolher qualquer x com 0 < x < n e n % x == 0.
+    - Substituir o número n no quadro-negro por n − x.
+    - Além disso, se um jogador não puder fazer uma jogada, ele perde o jogo.
+Retorne verdadeiro somente se Alice vencer o jogo, assumindo que ambos os jogadores jogam de forma otimizada.
 
 > Exemplo 1:
 ```
