@@ -88,7 +88,7 @@ int main() {
     printf("Forca Bruta encontrou %d ocorrencia(s).\n\n", FB);
 
     // Divisória
-    printf("=====================================================\n")
+    printf("=====================================================\n\n");
 
     // Testando o algoritmo KMP
     printf("Resultados do algoritmo de KMP:\n");
