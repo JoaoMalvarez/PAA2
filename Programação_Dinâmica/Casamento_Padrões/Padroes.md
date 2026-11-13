@@ -282,6 +282,7 @@ Como resultado, o algoritmo devolve:
 A string S[i . . r] é rotulado com β e também ocorre em i′
 
 Dois subcasos possíveis:
+
 2a. Zi′ < |β| então Zi = Zi′,e as posições l e r não se alteram.
 
 ![tabela2](i4.png)
