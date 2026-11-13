@@ -216,3 +216,97 @@ Casamento-Padrões-KMP(T, P)
 > Casamento-Padrões-KMP(): $O(n)$
 
 > Portanto, o tempo total do algoritmo é $O(m + n)$
+
+--- 
+
+## Casamento de Padrões com Z
+
+```
+Casamento-Padrões-Z(T, P)
+    S = P$T
+    Computar todos os Zi para S
+    retorne todos i − |P| − 1 tal que Zi = |P|
+```
+
+> Exemplo:
+- P = ’ana’
+- T = ’bananana’
+
+Construimos S = ’ana$bananana’
+Calculamos o vetor Z, valores iguais a 3 indicam a ocorrência de ’ana’
+
+### Por que isto funciona?
+- i − |P| − 1 mapeia índices de que para os índices de T
+- Zi = |P| se, e somente se, a string iniciando em i casa com P
+- Consumo de tempo: O(|P| + |T| + ZS), onde ZS é o tempo de computar o Zi para T. Este passo pode ser ineficiente.
+
+---
+
+Para computar todos os Zi para S.
+
+Algoritmo ingênuo:
+    Para cada posição:
+        1 comparar caracter por caracter
+        2 contar os casamentos
+
+```
+Função-z(S)
+    n = |S|
+    para i ← 1 até n
+        enquanto i + Z[i] < n e S[Z[i]] == S[i + Z[i]]
+            Z[i] ← Z[i] +1
+```
+
+> Exemplo:
+- S = "aabxaayaab"
+- Z = [0,1,0,0,2,1,0,3,1,0]
+
+> Consumo de tempo: O(^2)
+Vamos utilizar outra estratégia mais eficiente para computar Zi para S.
+
+---
+
+O algoritmo de pré-processamento iterativamente computa Zi.
+A cada passo o algoritmo considera:
+- Z2 . . . Zi−1, e
+- os limites l (left) e r (right) do Z-box que se encontra mais a direita e que inicia-se em alguma posição entre 2 . . . i − 1.
+
+Como resultado, o algoritmo devolve:
+• Zi e os valores atualizados de l e r
+
+1. Se i > r, explicitamente compute Zi comparando com o prefixo de S. Se o Zi > 0, então l = i e r = i + Zi − 1, que são os novos limites do Z-box mais a direita.
+2. Se i ≤ r, ocorre a seguinte situação:
+
+![tabela](i3.png)
+
+A string S[i . . r] é rotulado com β e também ocorre em i′
+
+Dois subcasos possíveis:
+2a. Zi′ < |β| então Zi = Zi′,e as posições l e r não se alteram.
+
+![tabela2](i4.png)
+
+2b. Zi′ ≥ |β|, então S[i . . r] deve ser um prefixo de S e Zi ≥ |β| = r − i + 1.
+
+![tabela3](i5.png)
+
+então, compare os caracteres a partir da posição r + 1 de S com a posição iniciando em |β|+1 de S até que um mismatch ocorra. 
+Digamos que o mismatch ocorra na posição q ≥ r+1. Então Zi recebe o valor q − i e atribua l = i e r = q − 1.
+
+```
+Função-z(S)
+    n = |S|
+    para i ← 2 até n
+        se i > r então ▷ Caso 1
+            l ← i, r ← i
+            enquanto r ≤ n e S[r − l] == S[r ] faça r ← r +1
+            Z[i] ← r − l, r ← r −1
+        senão ▷ Caso 2
+            i′ ← i − l + 1
+            se Z[i′] < r − i +1 então Z[i] ← Z[i′] ▷ Caso 2a
+            senão ▷ Caso 2b
+                l ← i
+                enquanto r ≤ n e S[r − l] == S[r ] faça r ← r +1
+                Z[i] ← r − l +1, r ← r −1
+    retorne Z
+```
